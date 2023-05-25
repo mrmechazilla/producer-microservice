@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import javax.persistence.*;
 
 
 @Data
@@ -17,5 +18,12 @@ public class Package {
     private double packageHeight;
     private double packageWidth;
     private double packagePrice;
+    @Enumerated(EnumType.STRING)
     private ShippingTierEnum shippingTier;
+    private String departureAddress;
+    private String arrivalAddress;
+    @ManyToOne
+    private Event event;
+    @ManyToOne
+    private PackageBox packagebox;
 }

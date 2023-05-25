@@ -6,14 +6,14 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
+@NoArgsConstructor @AllArgsConstructor @ToString
+//@Entity
 public class Client {
     private Long clientId;
     private String firstname;
@@ -21,4 +21,8 @@ public class Client {
     private String idNumber;
     private Date dateOfBirth;
     private String address;
+
+    @OneToMany(mappedBy = "client")
+    private List<Event> events;
+
 }
